@@ -1,8 +1,6 @@
 package com.ibrahim.reflection;
 
 import com.ibrahim.reflection.animal.Cat;
-import com.oracle.tools.packager.Log;
-import com.sun.org.slf4j.internal.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -32,9 +30,10 @@ public class Application {
             if(field.getName().equals("name")){
                 field.setAccessible(true);
                 field.set(myCat, "Duman");
+                String typeValue = (String) field.get(myCat); //private field value
+                System.out.println(typeValue);
             }
         }
-        System.out.println(myCat.getName());
 
 
         //you can access method in class
@@ -72,6 +71,7 @@ public class Application {
                 method.invoke(null);
             }
         }
+
 
 
     }
